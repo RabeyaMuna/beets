@@ -21,6 +21,8 @@ jobs:
         }}
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     - name: Get changed docs files
       id: changed-doc-files
       uses: tj-actions/changed-files@v46
@@ -32,7 +34,7 @@ jobs:
       uses: tj-actions/changed-files@v46
       with:
         files: |
-          **.py
+          **/*.py
           poetry.lock
 
     - name: Check changed python files
@@ -48,7 +50,6 @@ jobs:
         echo "all_changed_files=$CHANGED_PYTHON_FILES" >> "$GITHUB_OUTPUT"
 
   format:
-    if: needs.changed-files.outputs.any_python_changed == 'true'
     runs-on: ubuntu-latest
     name: Check formatting
     needs: changed-files
@@ -69,7 +70,6 @@ jobs:
       run: poe check-format
 
   lint:
-    if: needs.changed-files.outputs.any_python_changed == 'true'
     runs-on: ubuntu-latest
     name: Check linting
     needs: changed-files
@@ -86,11 +86,12 @@ jobs:
       run: poetry install --only=lint
 
     - name: Lint code
-      run: poe lint --output-format=github ${{ needs.changed-files.outputs.changed_python_files
-        }}
+      shell: bash
+      run: |
+        FILES="${{ needs.changed-files.outputs.changed_python_files }}"
+        poe lint --output-format=github ${FILES:-.}
 
   mypy:
-    if: needs.changed-files.outputs.any_python_changed == 'true'
     runs-on: ubuntu-latest
     name: Check types with mypy
     needs: changed-files
@@ -113,7 +114,6 @@ jobs:
         run: poe check-types --show-column-numbers --no-error-summary .
 
   docs:
-    if: needs.changed-files.outputs.any_docs_changed == 'true'
     runs-on: ubuntu-latest
     name: Check docs
     needs: changed-files
@@ -142,3 +142,4 @@ jobs:
 
     - name: Build docs
       run: poe docs -e 'SPHINXOPTS=--fail-on-warning --keep-going'
+
