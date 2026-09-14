@@ -22,6 +22,7 @@ file:
 
 The default configuration lists all unimported files, ignoring no extensions.
 
-When true, the ``ignore_as_globs`` parameter uses the same way of parsing files as
-beets, using the ``ignore_subdirectories`` as globs whatever the depth, instead of
-excluding them if they are the direct child of the library root.
+When true, the ``ignore_as_globs`` parameter uses the same way of parsing
+files as beets, using the ``ignore_subdirectories`` as globs whatever the
+depth, instead of excluding them if they are the direct child of the library
+root.
