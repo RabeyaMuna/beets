@@ -16,13 +16,13 @@
 """
 
 import unittest
-from test import _common
-from test._common import Bag
-from test.helper import capture_log
 
 from beets import config
 from beets.util.id_extractors import extract_discogs_id_regex
 from beetsplug.discogs import DiscogsPlugin
+from test import _common
+from test._common import Bag
+from test.helper import capture_log
 
 
 class DGAlbumInfoTest(_common.TestCase):

@@ -6,11 +6,11 @@ import os.path
 import platform
 import shutil
 import unittest
-from test import _common
 
 from beets import logging
 from beets.library import Album, Item
 from beetsplug import web
+from test import _common
 
 
 class WebPluginTest(_common.LibTestCase):

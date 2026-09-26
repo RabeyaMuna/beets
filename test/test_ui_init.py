@@ -20,10 +20,10 @@ import shutil
 import unittest
 from copy import deepcopy
 from random import random
-from test import _common
-from test.helper import control_stdin
 
 from beets import config, ui
+from test import _common
+from test.helper import control_stdin
 
 
 class InputMethodsTest(_common.TestCase):

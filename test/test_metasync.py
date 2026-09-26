@@ -18,11 +18,11 @@ import platform
 import time
 import unittest
 from datetime import datetime
-from test import _common
-from test.helper import TestHelper
 
 from beets.library import Item
 from beets.util import py3_path
+from test import _common
+from test.helper import TestHelper
 
 
 def _parsetime(s):

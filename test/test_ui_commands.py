@@ -19,11 +19,11 @@
 import os
 import shutil
 import unittest
-from test import _common
 
 from beets import library, ui
 from beets.ui import commands
 from beets.util import syspath
+from test import _common
 
 
 class QueryTest(_common.TestCase):

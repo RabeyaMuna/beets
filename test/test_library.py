@@ -24,9 +24,6 @@ import sys
 import time
 import unicodedata
 import unittest
-from test import _common
-from test._common import item
-from test.helper import TestHelper
 
 from mediafile import MediaFile, UnreadableFileError
 
@@ -34,6 +31,9 @@ import beets.dbcore.query
 import beets.library
 from beets import config, plugins, util
 from beets.util import bytestring_path, syspath
+from test import _common
+from test._common import item
+from test.helper import TestHelper
 
 # Shortcut to path normalization.
 np = util.normpath

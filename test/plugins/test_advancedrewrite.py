@@ -16,9 +16,9 @@
 """
 
 import unittest
-from test.helper import TestHelper
 
 from beets.ui import UserError
+from test.helper import TestHelper
 
 PLUGIN_NAME = "advancedrewrite"
 

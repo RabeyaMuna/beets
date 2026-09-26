@@ -19,7 +19,6 @@ import itertools
 import os
 import re
 import unittest
-from test import _common
 from unittest.mock import MagicMock, patch
 
 import confuse
@@ -29,6 +28,7 @@ from beets import logging
 from beets.library import Item
 from beets.util import bytestring_path
 from beetsplug import lyrics
+from test import _common
 
 log = logging.getLogger("beets.test_lyrics")
 raw_backend = lyrics.Backend({}, log)

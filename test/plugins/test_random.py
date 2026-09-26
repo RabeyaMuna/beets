@@ -19,9 +19,9 @@
 import math
 import unittest
 from random import Random
-from test.helper import TestHelper
 
 from beets import random
+from test.helper import TestHelper
 
 
 class RandomTest(unittest.TestCase, TestHelper):
