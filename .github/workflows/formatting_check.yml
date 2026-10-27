@@ -17,12 +17,6 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Cache tox environment
-      uses: actions/cache@v4
-      with:
-        path: .tox
-        key: tox-format-${{ hashFiles('tox.ini', 'setup.cfg', 'pyproject.toml') }}
-
     - name: Install tox
       run: |
         PIP_INDEX_URL=https://pypi.org/simple pip install tox
